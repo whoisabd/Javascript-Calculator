@@ -1,38 +1,122 @@
-.App {
-  text-align: center;
+.calculator{
+  width: 30rem;
+  height: 40rem;
+  border: 3px solid black;
+  margin: auto;
+  position: relative;
+  top: 8rem;
+  border-radius: 1rem;
+  overflow: hidden;
+  background-color: #292D2A;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 1.5fr repeat(5, 1fr);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+#display {
+  grid-column: span 4; 
+  font-size: 4rem;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding: 2%;
+  text-align: end;
 }
 
-.App-link {
-  color: #61dafb;
+button:nth-child(18) {
+  grid-column: span 2; 
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+button {
+  border: 0.5px solid #292D2A;
+  background-color: #6C6C6C;
+  font-size: 1.9rem;
+  color: inherit;
+  transition: all 300ms;
+  border-radius: 2px;
+}
+
+button:hover, button:focus, button:active {
+  background-color: #787878;
+}
+
+button:focus {
+  outline:none;
+}
+
+.operator {
+  background-color: #FFA01C;
+  font-size: 3rem;
+}
+
+.darker {
+  background-color: #4C4D4C;
+}
+
+.darker:hover, .darker:focus, .darker:active {
+  background-color: rgb(108, 108, 108)
+}
+
+.operator:hover, .operator:focus, .operator:active {
+  background-color: white;
+  color:#FFA01C;
+}
+
+@media (max-width: 480px) {
+  .calculator {
+    width: 100vw;
+    height: 100vh;
+    position: static;
+    border: none;
+    border-radius: 0;
+    background-color: black;
+    grid-template-rows: 40vh repeat(5, 12.5vh);
   }
-  to {
-    transform: rotate(360deg);
+
+  button {
+    border-radius: 50%;
+    width: max(10vh, 22.5vw);
+    height: max(10vh, 22.5vw);
+    border: none;
+    margin-top: -3vh;
+    background-color: #323232;
+  }
+
+  #display {
+    padding-bottom: 5vh;
+  }
+
+  button:hover, button:focus, button:active {
+    background-color: #737373;
+  }
+
+  .darker {
+    background-color: #A5A5A5;
+    color:#323232;
+  }
+  
+  .darker:hover, .darker:focus, .darker:active {
+    background-color: #D9D9D9;
+  }
+
+}
+
+
+@media (max-width: 400px) {
+  .calculator {
+    grid-template-rows: 40vh repeat(5, 11vh);
+    max-width: 370px;
+    margin: auto;
+  }
+
+  button {
+    margin-top: -1vh;
+    width: 9vh;
+    height: 9vh;
+  }
+
+  #display {
+    padding-bottom: 5%;
   }
 }
+
